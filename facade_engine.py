@@ -1,4 +1,3 @@
-
 class A(object):
     def __init__(self, name):
         print(name)
@@ -44,6 +43,13 @@ class RunFunction(object):
         self.function_dict['c'] = self.function_c
         self.function_dict['d'] = self.function_d
         self.function_dict['e'] = self.function_e
+
+        self.name_dict = dict()
+        self.name_dict['a'] = 'A("Class A")'
+        self.name_dict['b'] = 'B("Class B")'
+        self.name_dict['c'] = 'C("Class C")'
+        self.name_dict['d'] = 'D("Class D")'
+        self.name_dict['e'] = 'E("Class E")'
 
     @staticmethod
     def run(func):
@@ -92,7 +98,13 @@ class RunFunction(object):
         try:
             _func = self.function_dict[func_id]
             self.run(_func)
-        except KeyError as e:
+        except KeyError:
+            print('Function with ID ' + func_id + ' does not exist.')
+
+    def eval_function(self, func_id: str):
+        try:
+            _c = eval(self.name_dict[func_id])
+        except KeyError:
             print('Function with ID ' + func_id + ' does not exist.')
 
 
@@ -114,3 +126,10 @@ if __name__ == '__main__':
     rf.run_function_2('e')
     rf.run_function_2('f')
 
+    print('*** eval_function ***')
+    rf.eval_function('a')
+    rf.eval_function('b')
+    rf.eval_function('c')
+    rf.eval_function('d')
+    rf.eval_function('e')
+    rf.eval_function('f')
