@@ -2,7 +2,6 @@ class MinMax(object):
     """
     最小と最大を求める
     """
-
     def __init__(self):
         """
         初期化
@@ -19,7 +18,7 @@ class MinMax(object):
         _d = dict()
         for _i, _v in enumerate(self.list):
             _d[_i] = _v
-        _range = list(range(len(self.list)))
+        _range = _d.keys()
         self.tl0 = list(map(lambda i: _d[i][0], _range))
         self.tl1 = list(map(lambda i: _d[i][1], _range))
 
