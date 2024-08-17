@@ -17,8 +17,8 @@ class MinMax(object):
         変数に代入する
         """
         _d = dict()
-        for i in range(len(self.list)):
-            _d[i] = self.list[i]
+        for _i, _v in enumerate(self.list):
+            _d[_i] = _v
         _range = list(range(len(self.list)))
         self.tl0 = list(map(lambda i: _d[i][0], _range))
         self.tl1 = list(map(lambda i: _d[i][1], _range))
